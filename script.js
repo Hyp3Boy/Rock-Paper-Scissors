@@ -29,12 +29,34 @@ function determineWinner(userChoice, computerChoice) {
   }
 }
 
-// Start the program
-// Prompt the user for their choice
-let userChoice = prompt("Enter your choice: ");
-userChoice = userChoice.toLowerCase();
-// Get the computer's choice
-let computerChoice = getComputerChoice();
-// Determine the winner
-console.log(determineWinner(userChoice, computerChoice));
+let timesToPlay = prompt("How many times do you want to play? ");
+let userWins = 0;
+let computerWins = 0;
+let ties = 0;
+for (let i = 0; i < timesToPlay; i++) {
+  // Start the program
+  // Prompt the user for their choice
+  let userChoice = prompt("Enter your choice: ");
+  userChoice = userChoice.toLowerCase();
+  // Get the computer's choice
+  let computerChoice = getComputerChoice();
+  // Determine the winner
+  console.log(determineWinner(userChoice, computerChoice));
+  // Add to the score
+  if (determineWinner(userChoice, computerChoice) === "You won!") {
+    userWins++;
+  } else if (
+    determineWinner(userChoice, computerChoice) === "The computer won!"
+  ) {
+    computerWins++;
+  } else {
+    ties++;
+  }
+}
+
+console.log("--------------------");
+console.log("You won " + userWins + " times.");
+console.log("The computer won " + computerWins + " times.");
+console.log("You tied " + ties + " times.");
+console.log("--------------------");
 // Display the results
