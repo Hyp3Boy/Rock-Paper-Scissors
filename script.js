@@ -41,8 +41,10 @@ for (let i = 0; i < timesToPlay; i++) {
   // Get the computer's choice
   let computerChoice = getComputerChoice();
   // Determine the winner
+  console.log("The computer chose: " + computerChoice);
   console.log(determineWinner(userChoice, computerChoice));
   // Add to the score
+
   if (determineWinner(userChoice, computerChoice) === "You won!") {
     userWins++;
   } else if (
@@ -54,6 +56,7 @@ for (let i = 0; i < timesToPlay; i++) {
   }
 }
 
+console.log("");
 console.log("--------------------");
 console.log("You won " + userWins + " times.");
 console.log("The computer won " + computerWins + " times.");
